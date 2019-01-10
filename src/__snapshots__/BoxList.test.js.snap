@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing passes simple snapshots 1`] = `
+<div
+  className="BoxList"
+>
+  <NewFormBox
+    submit={[Function]}
+  />
+</div>
+`;
+
+exports[`snapshot testing passes simple snapshots 2`] = `
+<BoxList>
+  <div
+    className="BoxList"
+  >
+    <NewFormBox
+      submit={[Function]}
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div>
+          <label
+            htmlFor="backgroundColor"
+          >
+            Color
+          </label>
+          <input
+            name="backgroundColor"
+            onChange={[Function]}
+            type="text"
+            value="#000000"
+          />
+          <div
+            className="sample"
+            style={
+              Object {
+                "backgroundColor": "#000000",
+              }
+            }
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="width"
+          >
+            Width (px)
+          </label>
+          <input
+            name="width"
+            onChange={[Function]}
+            type="text"
+            value={10}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="height"
+          >
+            Height (px)
+          </label>
+          <input
+            name="height"
+            onChange={[Function]}
+            type="text"
+            value={10}
+          />
+        </div>
+        <button
+          name="submit-button"
+          type="submit"
+        >
+          Make a box!
+        </button>
+      </form>
+    </NewFormBox>
+  </div>
+</BoxList>
+`;

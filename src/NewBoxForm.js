@@ -52,7 +52,9 @@ class NewFormBox extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button type="submit">Make a box!</button>
+        <button name="submit-button" type="submit">
+          Make a box!
+        </button>
       </form>
     );
   }
