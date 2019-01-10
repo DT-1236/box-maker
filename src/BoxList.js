@@ -7,31 +7,49 @@ import uuid from 'uuid/v4';
 class BoxList extends Component {
   constructor(props) {
     super(props);
-    this.state = { boxes: [] };
+    this.state = {};
     this.makeNewBox = this.makeNewBox.bind(this);
+    this.removeBox = this.removeBox.bind(this);
   }
 
   makeNewBox({ backgroundColor, height, width }) {
+    const currentBoxList = { ...this.state };
     this.setState({
-      boxes: this.state.boxes.concat({
+      ...currentBoxList,
+      [uuid()]: {
         backgroundColor,
         height: height + 'px',
         width: width + 'px'
-      })
+      }
     });
   }
 
-  removeBox() {}
+  removeBox(uuid) {
+    const boxList = { ...this.state };
+    console.log('The boxes', boxList);
+    delete boxList[uuid];
+    console.log('The new boxList', boxList);
+    this.setState(boxList);
+  }
 
   renderBoxes() {
-    console.log('We are rendering boxes', this.state.boxes);
-    return this.state.boxes.map(item => {
-      console.log("We're in the map");
-      return <Box style={item} />;
-    });
+    const boxes = [];
+    console.log(this.state);
+    for (let uuid in this.state) {
+      boxes.push(
+        <Box
+          key={uuid}
+          id={uuid}
+          style={this.state[uuid]}
+          remove={this.removeBox}
+        />
+      );
+    }
+    return boxes;
   }
 
   render() {
+    console.log('Rendering BoxList', this.state);
     return (
       <div className="BoxList">
         <NewBoxForm submit={this.makeNewBox} />
