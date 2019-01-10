@@ -7,40 +7,39 @@ import uuid from 'uuid/v4';
 class BoxList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { boxes: {} };
     this.makeNewBox = this.makeNewBox.bind(this);
     this.removeBox = this.removeBox.bind(this);
   }
 
   makeNewBox({ backgroundColor, height, width }) {
-    const currentBoxList = { ...this.state };
+    const currentBoxList = { ...this.state.boxes };
     this.setState({
-      ...currentBoxList,
-      [uuid()]: {
-        backgroundColor,
-        height: height + 'px',
-        width: width + 'px'
+      boxes: {
+        ...currentBoxList,
+        [uuid()]: {
+          backgroundColor,
+          height: height + 'px',
+          width: width + 'px'
+        }
       }
     });
   }
 
   removeBox(uuid) {
-    const boxList = { ...this.state };
-    console.log('The boxes', boxList);
+    const boxList = { ...this.state.boxes };
     delete boxList[uuid];
-    console.log('The new boxList', boxList);
-    this.setState(boxList);
+    this.setState({ boxes: boxList });
   }
 
   renderBoxes() {
     const boxes = [];
-    console.log(this.state);
-    for (let uuid in this.state) {
+    for (let uuid in this.state.boxes) {
       boxes.push(
         <Box
           key={uuid}
           id={uuid}
-          style={this.state[uuid]}
+          style={this.state.boxes[uuid]}
           remove={this.removeBox}
         />
       );
@@ -49,7 +48,6 @@ class BoxList extends Component {
   }
 
   render() {
-    console.log('Rendering BoxList', this.state);
     return (
       <div className="BoxList">
         <NewBoxForm submit={this.makeNewBox} />

@@ -7,7 +7,6 @@ class Box extends Component {
   }
 
   handleRemove() {
-    console.log("We're in handle Remove", this.props.id);
     this.props.remove(this.props.id);
   }
 
@@ -15,7 +14,9 @@ class Box extends Component {
     return (
       <div>
         <div className="Box" style={this.props.style} />
-        <button onClick={this.handleRemove}>x</button>
+        <button className="delete-button" onClick={this.handleRemove}>
+          x
+        </button>
       </div>
     );
   }

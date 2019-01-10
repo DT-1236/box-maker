@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing passes simple snapshots 1`] = `
+<div>
+  <div
+    className="Box"
+  />
+  <button
+    className="delete-button"
+    onClick={[Function]}
+  >
+    x
+  </button>
+</div>
+`;
+
+exports[`snapshot testing passes simple snapshots 2`] = `
+<Box>
+  <div>
+    <div
+      className="Box"
+    />
+    <button
+      className="delete-button"
+      onClick={[Function]}
+    >
+      x
+    </button>
+  </div>
+</Box>
+`;
+
+exports[`snapshot testing passes snapshots with styling 1`] = `
+<Box
+  style={
+    Object {
+      "backgroundColor": "#444444",
+      "height": "25px",
+      "width": "50px",
+    }
+  }
+>
+  <div>
+    <div
+      className="Box"
+      style={
+        Object {
+          "backgroundColor": "#444444",
+          "height": "25px",
+          "width": "50px",
+        }
+      }
+    />
+    <button
+      className="delete-button"
+      onClick={[Function]}
+    >
+      x
+    </button>
+  </div>
+</Box>
+`;
