@@ -4,7 +4,7 @@ import './NewBoxForm.css';
 class NewFormBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { height: 10, width: 10, backgroundColor: '#000000' };
+    this.state = { height: 0, width: 0, backgroundColor: '#000000' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
